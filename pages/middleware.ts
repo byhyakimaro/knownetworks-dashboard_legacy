@@ -4,7 +4,6 @@ export function middleware(request: NextRequest) {
   // Setting cookies on the response
   const response = NextResponse.next()
   response.cookies.set('vercel', 'fast')
-  response.cookies.set('vercel', 'fast', { path: '/test' })
 
   // Getting cookies from the request
   const cookie = request.cookies.get('vercel')
