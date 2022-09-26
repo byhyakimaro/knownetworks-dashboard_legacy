@@ -1,6 +1,11 @@
 import { NextResponse, NextRequest } from 'next/server'
 
 export function middleware(request: NextRequest) {
+
+  if (request.nextUrl.pathname.startsWith('/about')) {
+    return NextResponse.rewrite(new URL('/about-2', request.url))
+  }
+
   // Setting cookies on the response
   const response = NextResponse.next()
   response.cookies.set('vercel', 'fast')
