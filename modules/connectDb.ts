@@ -23,3 +23,10 @@ export async function getCollection() {
 	const db = await connect()
 	return await db.collection('members')
 }
+
+
+async function reqMongoDb (req: Request, res: Response) {
+  const collection = (await getCollection())
+  await collection.insertOne(req.body)
+  return 'ok'
+}
